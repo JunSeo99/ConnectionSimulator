@@ -56,7 +56,7 @@
 ### main 함수의 다음과 같은 순서로 시뮬레이션을 실행 합니다.
 
 ```
-       // main.java
+       // ConnectionSimulator.java
 
         System.out.println("\n두개의 블루투스 키보드 생성 및 연결 방법 출력: \n");
         BluetoothKeyboard bluetoothKeyboard1 = new BluetoothKeyboard();
