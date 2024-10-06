@@ -15,6 +15,19 @@ public abstract class Device {
             behavior.connect(this, devices);
         });
     }
+
+    public void disconnect(Device device) {
+        behaviors.forEach( behavior -> {
+            behavior.disconnect(this, device);
+        });
+    }
+
+    public void disconnectAll() {
+        behaviors.forEach( behavior -> {
+            behavior.disconnectAll(this);
+        });
+    }
+
     public Device(List<ConnectBehavior> connectBehaviors) {
         this.behaviors = connectBehaviors;
         this.connectionDevices = new ArrayList<>();

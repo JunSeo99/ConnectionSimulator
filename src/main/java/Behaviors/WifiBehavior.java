@@ -29,12 +29,15 @@ public class WifiBehavior implements ConnectBehavior {
             return device;
         });
 
+//        System.out.println(((WifiRouter) maxSpeedDevice).getSpeed() + "속도인 와이파이 라우터와 연결" );
+
 
         // 양쪽 디바이스에 연결
         self.connectionDevices.add(maxSpeedDevice); // array 에 추가
         maxSpeedDevice.connectionDevices.add(self); // array 에 추가
+        WifiRouter wifiRouter = (WifiRouter) maxSpeedDevice;
 
-        System.out.println(maxSpeedDevice + "와 " + self + "연결 성공");
+        System.out.println(wifiRouter + " 와 " + self + "연결 성공" + "속도: " + wifiRouter.getSpeed());
     }
 
     @Override

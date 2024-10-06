@@ -5,7 +5,10 @@ import Devices.Device;
 import java.util.*;
 
 
-// device 와 ConnectBehavior 을 분리한 이유는 주체적으로 연결을 하는 객체 그리고 연결을 받는 객체 이 두가지 타입의 객체를 분리하기 위해서
+
+// Connect 의 방식을 관장하기 위해 ConnectBehavior에 connect, disconnect 구현.
+// disconnect 함수 같은 경우, 상속받는 객체마다 다르지 않을 것 같아 interface 내부에서 default 함수로 정의했습니다.
+// Strategy 패턴을 사용해 구현했습니다.
 public interface ConnectBehavior {
     List<Device> connectedDevice = null;
     void connect(Device self, List<Device> devices);
@@ -22,8 +25,6 @@ public interface ConnectBehavior {
         });
         // self 에 있는 연결된 모든 device 제거
         self.connectionDevices = new ArrayList<>();
-
-        System.out.println("모든 연결 기기 해제");
     }
     ConnectBehaviorType getType();
 }
